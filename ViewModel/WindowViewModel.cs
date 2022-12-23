@@ -9,22 +9,33 @@ namespace wpf_advance
         private Window window;
         private int outerMarginSize = 10;
         private int windowRadius = 10;
+        private WindowDockPosition dockPosition = WindowDockPosition.Undocked;
 
         public double WindowMinimumWidth { get; set; } = 400;
         public double WindowMinimumHeight { get; set; } = 400;
-        public int ResizeBorder { get; set; } = 6;
+        public bool Borderless 
+        {
+            get { return (window.WindowState == WindowState.Maximized || dockPosition != WindowDockPosition.Undocked); }
+        }
+        public int ResizeBorder
+        {
+            get { return Borderless ? 0 : 6; }
+        }
         public Thickness ResizeBorderThickness
         {
             get { return new Thickness(ResizeBorder + OuterMarginSize); }
         }
-        public Thickness InnerContentPadding
-        {
-            get { return new Thickness(ResizeBorder); }
-        }
+        public Thickness InnerContentPadding { get; set; } = new Thickness(0);
         public int OuterMarginSize
         {
-            get { return window.WindowState == WindowState.Maximized ? 0 : outerMarginSize; }
-            set { outerMarginSize = value; }
+            get
+            {
+                return Borderless ? 0 : outerMarginSize;
+            }
+            set
+            {
+                outerMarginSize = value;
+            }
         }
         public Thickness OuterMarginSizeThickness
         {
@@ -32,8 +43,14 @@ namespace wpf_advance
         }
         public int WindowRadius
         {
-            get { return window.WindowState == WindowState.Maximized ? 0 : windowRadius; }
-            set { windowRadius = value; }
+            get
+            {
+                return Borderless ? 0 : windowRadius;
+            }
+            set
+            {
+                windowRadius = value;
+            }
         }
         public CornerRadius WindowCornerRadius
         {
@@ -41,17 +58,20 @@ namespace wpf_advance
         }
         public int TitleHeight { get; set; } = 42;
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
         public WindowViewModel(Window window)
         {
             this.window = window;
-
-            window.StateChanged += (sender, e) => 
+            window.StateChanged += (sender, e) =>
             {
-                OnPropertyChanged(nameof(ResizeBorderThickness));
-                OnPropertyChanged(nameof(OuterMarginSize));
-                OnPropertyChanged(nameof(OuterMarginSizeThickness));
-                OnPropertyChanged(nameof(WindowRadius));
-                OnPropertyChanged(nameof(WindowCornerRadius));
+                WindowResized();
+            };
+
+            WindowResizer resizer = new WindowResizer(window);
+            resizer.WindowDockChanged += (dock) =>
+            {
+                dockPosition = dock;
+                WindowResized();
             };
         }
 
@@ -69,6 +89,15 @@ namespace wpf_advance
             Win32Point w32Mouse = new Win32Point();
             GetCursorPos(ref w32Mouse);
             return new Point(w32Mouse.X, w32Mouse.Y);
+        }
+        private void WindowResized()
+        {
+            OnPropertyChanged(nameof(Borderless));
+            OnPropertyChanged(nameof(ResizeBorderThickness));
+            OnPropertyChanged(nameof(OuterMarginSize));
+            OnPropertyChanged(nameof(OuterMarginSizeThickness));
+            OnPropertyChanged(nameof(WindowRadius));
+            OnPropertyChanged(nameof(WindowCornerRadius));
         }
         public ICommand MinimizeCommand => new RelayCommand(() => window.WindowState = WindowState.Minimized);
         public ICommand MaximizeCommand => new RelayCommand(() => window.WindowState ^= WindowState.Maximized);
