@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:wpf_advance">
-    <Style TargetType="TextBlock"
+    <Style TargetType="{x:Type TextBlock}"
            x:Key="HeaderText"
            BasedOn="{StaticResource BaseTextBlockStyle}">
         <Setter Property="Foreground"
@@ -102,7 +102,7 @@
                 Value="0 0 0 1" />
         <Setter Property="FontFamily"
                 Value="{StaticResource LatoRegular}" />
-        <Setter Property="local:PasswordBoxProperties.MonitorPassword"
+        <Setter Property="local:MonitorPasswordProperty.Value"
                 Value="True" />
         <Setter Property="Template">
             <Setter.Value>
@@ -123,22 +123,10 @@
                                    x:Name="placeeholder"
                                    FontFamily="{StaticResource LatoThin}"
                                    Padding="{TemplateBinding Padding}"
+                                   Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BooleanToVisibilityConverter}}"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                    Foreground="{StaticResource ForegroundVeryDarkBrush}">
-                            <TextBlock.Style>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="Visibility"
-                                            Value="Collapsed" />
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding (local:PasswordBoxProperties.HasText), RelativeSource={RelativeSource TemplatedParent}}"
-                                                     Value="False">
-                                            <Setter Property="Visibility"
-                                                    Value="Visible" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
                         </TextBlock>
                     </Grid>
                     <ControlTemplate.Triggers>
