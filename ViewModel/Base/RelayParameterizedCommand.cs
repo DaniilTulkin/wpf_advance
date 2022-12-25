@@ -3,12 +3,12 @@ using System.Windows.Input;
 
 namespace wpf_advance
 {
-    public class RelayCommand : ICommand
+    public class RelayParameterizedCommand : ICommand
     {
-        private Action action;
+        private Action<object> action;
         public event EventHandler CanExecuteChanged = (sender, e) => { };
 
-        public RelayCommand(Action action)
+        public RelayParameterizedCommand(Action<object> action)
         {
             this.action = action;
         }
@@ -19,7 +19,7 @@ namespace wpf_advance
         }
         public void Execute(object parameter)
         {
-            action();
+            action(parameter);
         }
     }
 }

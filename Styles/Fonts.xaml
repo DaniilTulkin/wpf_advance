@@ -4,6 +4,7 @@
     <FontFamily x:Key="LatoThin">pask://application;,,,/Resources/Fonts/#Lato Thin</FontFamily>
     <FontFamily x:Key="LatoRegular">pask://application;,,,/Resources/Fonts/#Lato Regular</FontFamily>
     <FontFamily x:Key="LatoBold">pask://application;,,,/Resources/Fonts/#Lato Bold</FontFamily>
+    <FontFamily x:Key="FontAwesome">pask://application;,,,/Resources/Fonts/#Font Awesome 6 Free Solid</FontFamily>
     <Style TargetType="{x:Type Control}"
            x:Key="BaseStyle">
         <Setter Property="FontFamily"
