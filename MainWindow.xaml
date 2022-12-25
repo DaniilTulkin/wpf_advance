@@ -100,24 +100,29 @@
         </Style>
     </Window.Resources>
     <WindowChrome.WindowChrome>
-        <WindowChrome 
-            ResizeBorderThickness="{Binding ResizeBorderThickness}"
-            CaptionHeight="{Binding TitleHeight}"
-            CornerRadius="0"
-            GlassFrameThickness="0"
-            />
+        <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}"
+                      CaptionHeight="{Binding TitleHeight}"
+                      CornerRadius="0"
+                      GlassFrameThickness="0" />
     </WindowChrome.WindowChrome>
     <Border Background="{StaticResource WordBlueBrush}">
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
             <Grid.Background>
                 <ImageBrush TileMode="Tile"
                             ViewportUnits="Absolute"
                             Viewport="0 0 500 500"
                             ImageSource="/Resources/Images/Backgrounds/emoji-background.png" />
             </Grid.Background>
-            <Frame x:Name="MainFrame"
+            <local:SideMenuControl Grid.Column="0">
+                
+            </local:SideMenuControl>
+            <Frame Grid.Column="1"
+                   x:Name="MainFrame"
                    Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" />
         </Grid>
-        
     </Border>
 </Window>
