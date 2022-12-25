@@ -118,7 +118,7 @@
                             ImageSource="/Resources/Images/Backgrounds/emoji-background.png" />
             </Grid.Background>
             <local:SideMenuControl Grid.Column="0">
-                
+                <local:ChatListControl />
             </local:SideMenuControl>
             <Frame Grid.Column="1"
                    x:Name="MainFrame"
