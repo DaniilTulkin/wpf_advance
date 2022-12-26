@@ -1,6 +1,5 @@
 ﻿using Core;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace wpf_advance.Core
@@ -9,11 +8,6 @@ namespace wpf_advance.Core
     {
         public string Email { get; set; }
         public bool LoginIsRunning { get; set; }
-
-        public LoginViewModel()
-        {
-           
-        }
 
         public ICommand LoginCommand => new RelayParameterizedCommand( async (parameter) =>
         {
