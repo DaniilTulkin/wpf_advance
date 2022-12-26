@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
+using wpf_advance.Core;
 
 namespace wpf_advance
 {
@@ -11,6 +11,7 @@ namespace wpf_advance
             return (ApplicationPage)value switch
             {
                 ApplicationPage.Login => new LoginPage(),
+                ApplicationPage.Register => new RegisterPage(),
                 ApplicationPage.Chat => new ChatPage(),
                 _ => null
             };

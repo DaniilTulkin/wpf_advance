@@ -1,8 +1,7 @@
 ﻿using System.Windows.Controls;
 using System.Windows;
-using System;
 using System.Threading.Tasks;
-using wpf_advance.Animations;
+using wpf_advance.Core;
 
 namespace wpf_advance
 {
@@ -33,35 +32,35 @@ namespace wpf_advance
             if (PageLoadAnimation != PageAnimation.None)
                 Visibility = Visibility.Collapsed;
 
-            Loaded += BasePage_Loaded;
+            Loaded += BasePage_LoadedAsync;
             ViewModel = new VM();
         }
 
-        private async void BasePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private async void BasePage_LoadedAsync(object sender, RoutedEventArgs e)
         {
-            await AnimateIn();
+            await AnimateInAsync();
         }
-        public async Task AnimateIn()
+        public async Task AnimateInAsync()
         {
             if (PageLoadAnimation == PageAnimation.None) return;
 
             switch (PageLoadAnimation)
             {
                 case PageAnimation.SlideAndFadeInFromRight:
-                    await this.SlideAndFadeInFromRight(SlideSeconds);
+                    await this.SlideAndFadeInFromRightAsync(SlideSeconds);
                     break;
                 default:
                     break;
             }
         }
-        public async Task AnimateOut()
+        public async Task AnimateOutAsync()
         {
             if (PageUnloadAnimation == PageAnimation.None) return;
 
             switch (PageUnloadAnimation)
             {
                 case PageAnimation.SlideAndFadeOutToLeft:
-                    await this.SlideAndFadeOutToLeft(SlideSeconds);
+                    await this.SlideAndFadeOutToLeftAsync(SlideSeconds);
                     break;
                 default:
                     break;

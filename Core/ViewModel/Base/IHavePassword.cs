@@ -1,6 +1,6 @@
 ﻿using System.Security;
 
-namespace wpf_advance
+namespace wpf_advance.Core
 {
     public interface IHavePassword
     {

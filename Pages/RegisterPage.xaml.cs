@@ -3,9 +3,9 @@ using wpf_advance.Core;
 
 namespace wpf_advance
 {
-    public partial class LoginPage : BasePage<LoginViewModel>, IHavePassword
+    public partial class RegisterPage : BasePage<LoginViewModel>, IHavePassword
     {
-        public LoginPage()
+        public RegisterPage()
         {
             InitializeComponent();
         }

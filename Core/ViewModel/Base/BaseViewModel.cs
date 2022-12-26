@@ -2,9 +2,9 @@
 using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using wpf_advance.Expressions;
+using wpf_advance.Core.Expressions;
 
-namespace wpf_advance
+namespace wpf_advance.Core
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
@@ -13,7 +13,7 @@ namespace wpf_advance
         {
             PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
-        protected async Task RunCommand(Expression<Func<bool>> updatingFlag, Func<Task> action)
+        protected async Task RunCommandAsync(Expression<Func<bool>> updatingFlag, Func<Task> action)
         {
             if (updatingFlag.GetPropertyValue()) return;
 

@@ -80,29 +80,20 @@
     <Compile Include="Controls\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataModels\ApplicationPage.cs" />
-    <Compile Include="Expressions\ExpressionHelper.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\ChatPage.xaml.cs">
       <DependentUpon>ChatPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RegisterPage.xaml.cs">
+      <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Security\SecureStringHelper.cs" />
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\StringRGBToBrushConverter.cs" />
-    <Compile Include="ValueConverters\AttachedPropertyValueConverter.cs" />
+    <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
-    <Compile Include="ViewModel\Base\BaseViewModel.cs" />
-    <Compile Include="ViewModel\Base\IHavePassword.cs" />
-    <Compile Include="ViewModel\Base\RelayParameterizedCommand.cs" />
-    <Compile Include="ViewModel\Base\RelayCommand.cs" />
-    <Compile Include="ViewModel\Chat\ChatListViewModel.cs" />
-    <Compile Include="ViewModel\Chat\ChatListItemViewModel.cs" />
-    <Compile Include="ViewModel\Chat\Disign\ChatListDisignModel.cs" />
-    <Compile Include="ViewModel\Chat\Disign\ChatListItemDisignModel.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Compile Include="Window\WindowResizer.cs" />
     <Page Include="Controls\Chat\ChatListControl.xaml">
@@ -121,6 +112,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\RegisterPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,10 +132,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Styles\Windows.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\Texts.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -211,6 +202,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\Backgrounds\emoji-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Core\Core.csproj">
+      <Project>{a80d91cf-3d99-4d30-b7d6-444690380436}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Fody.6.6.4\build\Fody.targets" Condition="Exists('packages\Fody.6.6.4\build\Fody.targets')" />

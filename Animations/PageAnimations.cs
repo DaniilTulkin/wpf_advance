@@ -3,11 +3,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 
-namespace wpf_advance.Animations
+namespace wpf_advance
 {
     public static class PageAnimations
     {
-        public static async Task SlideAndFadeInFromRight(this Page page, double seconds)
+        public static async Task SlideAndFadeInFromRightAsync(this Page page, double seconds)
         {
             var sb = new Storyboard();
             sb.AddSlideFormRight(seconds, page.WindowWidth);
@@ -17,7 +17,7 @@ namespace wpf_advance.Animations
             await Task.Delay((int)seconds * 1000);
         }
 
-        public static async Task SlideAndFadeOutToLeft(this Page page, double seconds)
+        public static async Task SlideAndFadeOutToLeftAsync(this Page page, double seconds)
         {
             var sb = new Storyboard();
             sb.AddSlideToLeft(seconds, page.WindowWidth);

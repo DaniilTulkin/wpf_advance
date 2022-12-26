@@ -1,8 +1,9 @@
-﻿namespace wpf_advance
+﻿namespace wpf_advance.Core
 {
     public enum ApplicationPage
     {
         Login,
-        Chat
+        Register,
+        Chat,
     }
 }

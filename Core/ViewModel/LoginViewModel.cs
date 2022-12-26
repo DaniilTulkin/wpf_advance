@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
-namespace wpf_advance
+namespace wpf_advance.Core
 {
     public class LoginViewModel : BaseViewModel
     {
@@ -13,16 +14,20 @@ namespace wpf_advance
            
         }
 
-        public ICommand LoginCommand => new RelayParameterizedCommand( async (parameter) => await Login(parameter));
-        private async Task Login(object parameter)
+        public ICommand LoginCommand => new RelayParameterizedCommand( async (parameter) =>
         {
-            await RunCommand(() => LoginIsRunning, async () =>
+            await RunCommandAsync(() => LoginIsRunning, async () =>
             {
                 await Task.Delay(5000);
 
                 string email = Email;
                 string pass = (parameter as IHavePassword).SecurePassword.Unsecure();
             });
-        }
+        });
+        public ICommand RegisterCommand => new RelayCommand(async () =>
+        {
+            //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
+            await Task.Delay(1000);
+        });
     }
 }
