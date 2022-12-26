@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Core;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -26,7 +27,7 @@ namespace wpf_advance.Core
         });
         public ICommand RegisterCommand => new RelayCommand(async () =>
         {
-            //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
+            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Register;
             await Task.Delay(1000);
         });
     }

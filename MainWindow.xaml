@@ -122,7 +122,7 @@
             </local:SideMenuControl>
             <Frame Grid.Column="1"
                    x:Name="MainFrame"
-                   Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" />
+                   Content="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:ApplicationPageValueConverter}}" />
         </Grid>
     </Border>
 </Window>
