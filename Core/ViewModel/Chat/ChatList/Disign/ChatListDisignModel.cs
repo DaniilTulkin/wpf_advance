@@ -24,7 +24,6 @@ namespace wpf_advance.Core
                     Name = "Jasse",
                     Message = "Hey dude, here are new icins",
                     ProfilePictureRGB = "fe4503",
-                    IsSelected = true,
                 },
                 new ChatListItemViewModel
                 {
@@ -32,6 +31,7 @@ namespace wpf_advance.Core
                     Name = "Parnell",
                     Message = "The new server is up",
                     ProfilePictureRGB = "00d405",
+                    IsSelected = true,
                 },
                 new ChatListItemViewModel
                 {
