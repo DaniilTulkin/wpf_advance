@@ -13,15 +13,17 @@ namespace wpf_advance.Core
         {
             await RunCommandAsync(() => LoginIsRunning, async () =>
             {
-                await Task.Delay(5000);
+                await Task.Delay(1000);
 
                 string email = Email;
                 string pass = (parameter as IHavePassword).SecurePassword.Unsecure();
+
+                IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Chat);
             });
         });
         public ICommand RegisterCommand => new RelayCommand(async () =>
         {
-            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Register;
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Register);
             await Task.Delay(1000);
         });
     }

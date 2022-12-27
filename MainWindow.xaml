@@ -124,11 +124,11 @@
                                    Source={x:Static local:ViewModelLocator.Instance}}">
                 <local:ChatListControl />
             </local:SideMenuControl>
-            <Frame Grid.Column="1"
-                   x:Name="MainFrame"
-                   Content="{Binding ApplicationViewModel.CurrentPage, 
-                   Source={x:Static local:ViewModelLocator.Instance}, 
-                   Converter={local:ApplicationPageValueConverter}}" />
+            <local:PageHost Grid.Column="1"
+                            DataContext="{Binding ApplicationViewModel.CurrentPage, 
+                            Source={x:Static local:ViewModelLocator.Instance}, 
+                            Converter={local:ApplicationPageValueConverter}}"
+                            CurrentPage="{Binding}" />
         </Grid>
     </Border>
 </Window>

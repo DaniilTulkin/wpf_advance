@@ -10,7 +10,11 @@
                 d:DesignHeight="450"
                 d:DesignWidth="800"
                 Title="ChatPage">
-    <Grid>
-
-    </Grid>
+    <Border>
+        <TextBlock Text="ChatPage works!"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="{StaticResource FontSizeLarge}" />
+    </Border>
 </local:BasePage>

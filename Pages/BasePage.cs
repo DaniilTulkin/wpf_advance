@@ -5,27 +5,12 @@ using wpf_advance.Core;
 
 namespace wpf_advance
 {
-    public class BasePage<VM> : Page
-        where VM : BaseViewModel, new()
+    public class BasePage: Page
     {
-        private VM viewModel;
-        public VM ViewModel
-        {
-            get
-            {
-                return viewModel;
-            }
-            set
-            {
-                if (viewModel == value) return;
-                viewModel = value;
-
-                DataContext = viewModel;
-            }
-        }
-        public PageAnimation PageLoadAnimation  { get; set; } = PageAnimation.SlideAndFadeInFromRight;
-        public PageAnimation PageUnloadAnimation  { get; set; } = PageAnimation.SlideAndFadeOutToLeft;
-        public double SlideSeconds { get; set; } = 0.8;
+        public PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideAndFadeInFromRight;
+        public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideAndFadeOutToLeft;
+        public double SlideSeconds { get; set; } = 0.4;
+        public bool ShouldAnimateOut { get; set; }
 
         public BasePage()
         {
@@ -33,12 +18,12 @@ namespace wpf_advance
                 Visibility = Visibility.Collapsed;
 
             Loaded += BasePage_LoadedAsync;
-            ViewModel = new VM();
         }
 
         private async void BasePage_LoadedAsync(object sender, RoutedEventArgs e)
         {
-            await AnimateInAsync();
+            if (ShouldAnimateOut) await AnimateOutAsync();
+            else await AnimateInAsync();
         }
         public async Task AnimateInAsync()
         {
@@ -65,6 +50,30 @@ namespace wpf_advance
                 default:
                     break;
             }
+        }
+    }
+    public class BasePage<VM> : BasePage
+        where VM : BaseViewModel, new()
+    {
+        private VM viewModel;
+        public VM ViewModel
+        {
+            get
+            {
+                return viewModel;
+            }
+            set
+            {
+                if (viewModel == value) return;
+                viewModel = value;
+
+                DataContext = viewModel;
+            }
+        }
+
+        public BasePage() : base()
+        {
+            ViewModel = new VM();
         }
     }
 }
