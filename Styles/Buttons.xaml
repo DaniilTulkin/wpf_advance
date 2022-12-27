@@ -90,7 +90,7 @@
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="FontSize"
-                Value="{StaticResource FontSizeLarge}" />
+                Value="{StaticResource FontSizeXXLarge}" />
         <Setter Property="FontFamily"
                 Value="{StaticResource LatoRegular}" />
         <Setter Property="Padding"
@@ -112,12 +112,14 @@
                             <TextBlock Text="{TemplateBinding Content}"
                                        Focusable="False"
                                        FontFamily="{TemplateBinding FontFamily}"
+                                       FontSize="{TemplateBinding FontSize}"
                                        Margin="{TemplateBinding Padding}"
                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                        Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}}" />
                             <TextBlock Style="{StaticResource SpinningText}"
+                                       FontSize="{TemplateBinding FontSize}"
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                        Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}, ConverterParameter=True}" />
@@ -165,7 +167,7 @@
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="FontSize"
-                Value="{StaticResource FontSizeRegular}" />
+                Value="{StaticResource FontSizeXLarge}" />
         <Setter Property="FontFamily"
                 Value="{StaticResource LatoRegular}" />
         <Setter Property="Padding"
@@ -184,6 +186,7 @@
                         <TextBlock Text="{TemplateBinding Content}"
                                    Focusable="False"
                                    FontFamily="{TemplateBinding FontFamily}"
+                                   FontSize="{TemplateBinding FontSize}"
                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                    Margin="{TemplateBinding Padding}"
                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
@@ -215,7 +218,7 @@
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="FontSize"
-                Value="{StaticResource FontSizeLarge}" />
+                Value="{StaticResource FontSizeXXLarge}" />
         <Setter Property="FontFamily"
                 Value="{StaticResource FontAwesome}" />
         <Setter Property="Padding"
@@ -237,6 +240,7 @@
                                 <TextBlock Text="{TemplateBinding Content}"
                                            Focusable="False"
                                            FontFamily="{TemplateBinding FontFamily}"
+                                           FontSize="{TemplateBinding FontSize}"
                                            Margin="{TemplateBinding Padding}"
                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"

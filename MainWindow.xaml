@@ -20,7 +20,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
-                        <Border Margin="{Binding OuterMarginSizeThickness, FallbackValue=10}">
+                        <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}">
                             <Grid>
                                 <Border x:Name="Container"
                                         Background="{StaticResource BackgroundLightBrush}"
@@ -58,7 +58,7 @@
                                                  Margin="0">
                                             <StackPanel>
                                                 <TextBlock FontFamily="{StaticResource LatoBold}"
-                                                           FontSize="{StaticResource FontSizeRegular}"
+                                                           FontSize="{StaticResource FontSizeXLarge}"
                                                            Margin=" 0 0 0 -5">
                                                     <Run Text="W"
                                                          Foreground="{StaticResource WordOrangeBrush}" />

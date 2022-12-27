@@ -16,7 +16,7 @@
     <Style TargetType="{x:Type TextBox}"
            BasedOn="{StaticResource BaseStyle}">
         <Setter Property="FontSize"
-                Value="{StaticResource FontSizeLarge}" />
+                Value="{StaticResource FontSizeXXLarge}" />
         <Setter Property="BorderBrush"
                 Value="{StaticResource WordBlueBrush}" />
         <Setter Property="Padding"
@@ -95,7 +95,7 @@
     <Style TargetType="{x:Type PasswordBox}"
            BasedOn="{StaticResource BaseStyle}">
         <Setter Property="FontSize"
-                Value="{StaticResource FontSizeLarge}" />
+                Value="{StaticResource FontSizeXXLarge}" />
         <Setter Property="BorderBrush"
                 Value="{StaticResource WordBlueBrush}" />
         <Setter Property="Padding"
@@ -130,6 +130,7 @@
                                    Text="{TemplateBinding Tag}"
                                    x:Name="placeeholder"
                                    FontFamily="{StaticResource LatoThin}"
+                                   FontSize="{TemplateBinding FontSize}"
                                    Padding="{TemplateBinding Padding}"
                                    Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BooleanToVisibilityConverter}}"
                                    VerticalAlignment="Center"
