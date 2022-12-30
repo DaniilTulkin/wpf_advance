@@ -29,7 +29,13 @@ namespace wpf_advance
             oldPageFrame.Content = oldPageContent;
 
             if (oldPageContent is BasePage oldPage)
+            {
                 oldPage.ShouldAnimateOut = true;
+                Task.Delay((int)(oldPage.SlideSeconds * 1000)).ContinueWith((t) =>
+                {
+                    Application.Current.Dispatcher.Invoke(() => oldPageFrame.Content = null);
+                });
+            }
 
             newPageFrame.Content = e.NewValue;
         }

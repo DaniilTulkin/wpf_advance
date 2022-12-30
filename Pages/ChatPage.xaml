@@ -10,7 +10,34 @@
                 d:DesignHeight="450"
                 d:DesignWidth="800"
                 Title="ChatPage">
-    <Border>
-        <local:ChatMessageListControl />
-    </Border>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Height="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" 
+                       Grid.ColumnSpan="2"
+                       Text="Parnell"
+                       Foreground="{StaticResource ForegroundLightBrush}"
+                       FontFamily="{StaticResource LatoRegular}"
+                       FontSize="{StaticResource FontSizeXLarge}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal">
+                <Button Content="{StaticResource FontAwesomeSearchIcon}"
+                        Style="{StaticResource IconButton}"/>
+                <Button Content="{StaticResource FontAwesomeEllipsisVerticalIcon}"
+                        Style="{StaticResource IconButton}" />
+            </StackPanel>
+        </Grid>
+        <local:ChatMessageListControl Grid.Row="1" />
+    </Grid>
 </local:BasePage>

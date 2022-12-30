@@ -34,11 +34,13 @@
                                        Foreground="{StaticResource ForegroundDarkBrush}"
                                        Margin="0 0 0 20" />
                             <TextBox Tag="Email"
+                                     local:IsFocusedProperty.Value="True"
                                      Text="{Binding Email}"/>
                             <PasswordBox x:Name="PasswordText"
                                          Tag="Password"
                                          Margin="0 0 0 30" />
                             <Button Content="Register"
+                                    IsDefault="True"
                                     Command="{Binding RegisterCommand}"
                                     local:IsBusyProperty.Value="{Binding RegisterIsRunning}"
                                     CommandParameter="{Binding ElementName=Page}"

@@ -212,7 +212,7 @@
            TargetType="{x:Type Button}"
            BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background"
-                Value="{StaticResource WordBlueBrush}" />
+                Value="{StaticResource WordTransparentBlueBrush}" />
         <Setter Property="Foreground"
                 Value="{StaticResource ForegroundLightBrush}" />
         <Setter Property="BorderThickness"
@@ -262,7 +262,7 @@
                         <EventTrigger RoutedEvent="MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="{StaticResource WordBlue}"
+                                    <ColorAnimation To="{StaticResource WordTransparentBlue}"
                                                     Duration="0:0:0.15"
                                                     Storyboard.TargetName="border"
                                                     Storyboard.TargetProperty="Background.Color" />
