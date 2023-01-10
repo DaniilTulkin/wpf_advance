@@ -11,7 +11,7 @@ namespace wpf_advance
                                                               bool keepMargin = true)
         {
             var sb = new Storyboard();
-            sb.AddSlideFormRight(seconds, element.ActualWidth, keepMargin: keepMargin);
+            sb.AddSlideFromRight(seconds, element.ActualWidth, keepMargin: keepMargin);
             sb.AddFadeIn(seconds);
             sb.Begin(element);
             element.Visibility = Visibility.Visible;
@@ -22,7 +22,7 @@ namespace wpf_advance
                                                              bool keepMargin = true)
         {
             var sb = new Storyboard();
-            sb.AddSlideFormLeft(seconds, element.ActualWidth, keepMargin: keepMargin);
+            sb.AddSlideFromLeft(seconds, element.ActualWidth, keepMargin: keepMargin);
             sb.AddFadeIn(seconds);
             sb.Begin(element);
             element.Visibility = Visibility.Visible;
@@ -45,6 +45,28 @@ namespace wpf_advance
         {
             var sb = new Storyboard();
             sb.AddSlideToRight(seconds, element.ActualWidth, keepMargin: keepMargin);
+            sb.AddFadeOut(seconds);
+            sb.Begin(element);
+            element.Visibility = Visibility.Visible;
+            await Task.Delay((int)seconds * 1000);
+        }
+        public static async Task SlideAndFadeInFromBottomAsync(this FrameworkElement element,
+                                                               double seconds = 0.3,
+                                                               bool keepMargin = true)
+        {
+            var sb = new Storyboard();
+            sb.AddSlideFromBottom(seconds, element.ActualHeight, keepMargin: keepMargin);
+            sb.AddFadeIn(seconds);
+            sb.Begin(element);
+            element.Visibility = Visibility.Visible;
+            await Task.Delay((int)seconds * 1000);
+        }
+        public static async Task SlideAndFadeOutToBottomAsync(this FrameworkElement element,
+                                                              double seconds = 0.3,
+                                                              bool keepMargin = true)
+        {
+            var sb = new Storyboard();
+            sb.AddSlideToBottom(seconds, element.ActualHeight, keepMargin: keepMargin);
             sb.AddFadeOut(seconds);
             sb.Begin(element);
             element.Visibility = Visibility.Visible;

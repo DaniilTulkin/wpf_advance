@@ -10,7 +10,7 @@ namespace wpf_advance
         public static async Task SlideAndFadeInFromRightAsync(this Page page, double seconds)
         {
             var sb = new Storyboard();
-            sb.AddSlideFormRight(seconds, page.WindowWidth);
+            sb.AddSlideFromRight(seconds, page.WindowWidth);
             sb.AddFadeIn(seconds);
             sb.Begin(page);
             page.Visibility = Visibility.Visible;

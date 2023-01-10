@@ -6,7 +6,7 @@ namespace wpf_advance
 {
     public static class StoryboardHelpers
     {
-        public static void AddSlideFormRight(this Storyboard storyboard, 
+        public static void AddSlideFromRight(this Storyboard storyboard, 
                                              double seconds, 
                                              double offset, 
                                              double decelerationRation = 0.9,
@@ -22,7 +22,7 @@ namespace wpf_advance
             Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
             storyboard.Children.Add(animation);
         }
-        public static void AddSlideFormLeft(this Storyboard storyboard,
+        public static void AddSlideFromLeft(this Storyboard storyboard,
                                             double seconds,
                                             double offset,
                                             double decelerationRation = 0.9,
@@ -92,6 +92,38 @@ namespace wpf_advance
                 To = 1
             };
             Storyboard.SetTargetProperty(animation, new PropertyPath("Opacity"));
+            storyboard.Children.Add(animation);
+        }
+        public static void AddSlideFromBottom(this Storyboard storyboard,
+                                              double seconds,
+                                              double offset,
+                                              double decelerationRation = 0.9,
+                                              bool keepMargin = true)
+        {
+            var animation = new ThicknessAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(seconds)),
+                From = new Thickness(0, keepMargin ? offset : 0, 0, -offset),
+                To = new Thickness(0),
+                DecelerationRatio = decelerationRation
+            };
+            Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
+            storyboard.Children.Add(animation);
+        }
+        public static void AddSlideToBottom(this Storyboard storyboard,
+                                            double seconds,
+                                            double offset,
+                                            double decelerationRation = 0.9,
+                                            bool keepMargin = true)
+        {
+            var animation = new ThicknessAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(seconds)),
+                From = new Thickness(0),
+                To = new Thickness(0, keepMargin ? offset : 0, 0, -offset),
+                DecelerationRatio = decelerationRation
+            };
+            Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
             storyboard.Children.Add(animation);
         }
     }

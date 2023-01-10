@@ -78,6 +78,9 @@
     <Compile Include="AttachedProperties\ButtonAttachedProperty.cs" />
     <Compile Include="AttachedProperties\FrameworkElementAnimationAttachedProperty.cs" />
     <Compile Include="AttachedProperties\PasswordBoxAttachedProperty.cs" />
+    <Compile Include="Controls\BubbleControl.xaml.cs">
+      <DependentUpon>BubbleControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Chat\ChatMessage\ChatMessageListControl.cs">
       <DependentUpon>ChatMessageListControl.xaml</DependentUpon>
     </Compile>
@@ -108,6 +111,7 @@
     </Compile>
     <Compile Include="ValueConverters\SendByMeToBackgroundConverter.cs" />
     <Compile Include="ValueConverters\SendByMeToAligmentConverter.cs" />
+    <Compile Include="ValueConverters\HorizontalAlignmentConverter.cs" />
     <Compile Include="ValueConverters\TimeToReadTimeConverter.cs" />
     <Compile Include="ValueConverters\TimeToDisplayTimeConverter.cs" />
     <Compile Include="ValueConverters\IoCConverter.cs" />
@@ -118,6 +122,10 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Compile Include="Window\WindowResizer.cs" />
+    <Page Include="Controls\BubbleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Chat\ChatMessage\ChatMessageListControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -1,4 +1,4 @@
-﻿<local:BasePage x:TypeArguments="core:LoginViewModel"
+﻿<local:BasePage x:TypeArguments="core:ChatMessageListViewModel"
                 x:Class="wpf_advance.ChatPage"
                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -39,6 +39,11 @@
             </StackPanel>
         </Grid>
         <local:ChatMessageListControl Grid.Row="1" />
+        <local:BubbleControl Grid.Row="1"
+                             DataContext="{Binding AttachmentMenu}"
+                             VerticalAlignment="Bottom"
+                             HorizontalAlignment="Left"
+                             local:AnimateSlideInFromBottomProperty.Value="{Binding ViewModel.AttachmentMenuVisible, RelativeSource={RelativeSource AncestorType={x:Type local:ChatPage}}}"/>
         <Grid Grid.Row="2"
               MinHeight="50"
               MaxHeight="114"
@@ -52,6 +57,7 @@
                     Style="{StaticResource IconGrowButton}"
                     Content="{StaticResource FontAwesomePaperClipIcon}"
                     VerticalAlignment="Top"
+                    Command="{Binding AttachButtonCommand}"
                     Height="{Binding MinHeight, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
                     Foreground="{StaticResource ForegroundDarkBrush}" />
             <TextBox Grid.Column="1"

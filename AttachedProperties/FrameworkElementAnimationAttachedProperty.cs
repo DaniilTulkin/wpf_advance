@@ -27,13 +27,20 @@ namespace wpf_advance
 
         protected virtual void DoAnimation(FrameworkElement element, bool value) { }
     }
-
     public class AnimateSlideInFromLeftProperty : AnimateBaseProperty<AnimateSlideInFromLeftProperty>
     {
         protected override async void DoAnimation(FrameworkElement element, bool value)
         {
             if (value) await element.SlideAndFadeInFromLeftAsync(FirstLoad ? 0 : 0.3, false);
             else await element.SlideAndFadeOutToLeftAsync(FirstLoad ? 0 : 0.3, false);
+        }
+    }
+    public class AnimateSlideInFromBottomProperty : AnimateBaseProperty<AnimateSlideInFromBottomProperty>
+    {
+        protected override async void DoAnimation(FrameworkElement element, bool value)
+        {
+            if (value) await element.SlideAndFadeInFromBottomAsync(FirstLoad ? 0 : 0.3, false);
+            else await element.SlideAndFadeOutToBottomAsync(FirstLoad ? 0 : 0.3, false);
         }
     }
 }

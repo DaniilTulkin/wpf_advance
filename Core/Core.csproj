@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModels\ApplicationPage.cs" />
+    <Compile Include="DataModels\ElementHorizontalAlignment.cs" />
     <Compile Include="Expressions\ExpressionHelper.cs" />
     <Compile Include="IoC\IoC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +72,9 @@
     <Compile Include="ViewModel\Chat\ChatList\Disign\ChatListItemDisignModel.cs" />
     <Compile Include="ViewModel\Chat\ChatMessage\Disign\ChatMessageListDisignModel.cs" />
     <Compile Include="ViewModel\Chat\ChatMessage\Disign\ChatMessageListItemDisignModel.cs" />
+    <Compile Include="ViewModel\PopupMenu\BasePopupMenuViewModel.cs" />
+    <Compile Include="ViewModel\PopupMenu\Disign\ChatAttachmentPopupMenuDisignModel .cs" />
+    <Compile Include="ViewModel\PopupMenu\ChatAttachmentPopupMenuViewModel .cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
   </ItemGroup>
