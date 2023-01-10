@@ -6,9 +6,7 @@
              xmlns:local="clr-namespace:wpf_advance"
              xmlns:core="clr-namespace:wpf_advance.Core;assembly=Core"
              mc:Ignorable="d"
-             d:DataContext="{x:Static core:ChatAttachmentPopupMenuDisignModel.Instance}"
-             d:DesignHeight="100" 
-             d:DesignWidth="300">
+             d:DataContext="{x:Static core:ChatAttachmentPopupMenuDisignModel.Instance}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -16,7 +14,7 @@
         </Grid.RowDefinitions>
         <Border Grid.Row="0"
                 CornerRadius="10"
-                Padding="15"
+                Padding="12"
                 Margin="5 0 0 0"
                 Background="{Binding BubbleBackground, Converter={local:StringRGBToBrushConverter}}">
             <Border.Effect>
@@ -24,11 +22,7 @@
                                   ShadowDepth="2"
                                   Color="{StaticResource WordLightBlue}"/>
             </Border.Effect>
-            <TextBlock VerticalAlignment="Center"
-                       Text="test"
-                       TextWrapping="Wrap"
-                       Foreground="{StaticResource WordDarkBlueBrush}"
-                       FontFamily="{StaticResource LatoRegular}" />
+            <ContentControl Content="{Binding Converter={local:PopupContentConverter}}" />
         </Border>
         <Path Grid.Row="1"
               Panel.ZIndex="1"
