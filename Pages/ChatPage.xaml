@@ -89,8 +89,8 @@
                         Height="{Binding MinHeight, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
                         Foreground="{StaticResource WordOrangeBrush}" />
                 <Button Content="Send"
-                        
                         Padding="8"
+                        Command="{Binding SendCommand}"
                         Background="{StaticResource WordGreenBrush}"
                         FontSize="{StaticResource FontSizeRegular}"/>
             </StackPanel>

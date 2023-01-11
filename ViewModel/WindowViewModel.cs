@@ -32,6 +32,8 @@ namespace wpf_advance
         public CornerRadius WindowCornerRadius => new CornerRadius(WindowRadius);
         public int TitleHeight { get; set; } = 42;
         public GridLength TitleHeightGridLength => new GridLength(TitleHeight + ResizeBorder);
+        public bool DimmableOverlayVisible { get; set; }
+
         public WindowViewModel(Window window)
         {
             this.window = window;

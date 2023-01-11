@@ -72,5 +72,24 @@ namespace wpf_advance
             element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
         }
+        public static async Task FadeInAsync(this FrameworkElement element,
+                                             double seconds = 0.3)
+        {
+            var sb = new Storyboard();
+            sb.AddFadeIn(seconds);
+            sb.Begin(element);
+            element.Visibility = Visibility.Visible;
+            await Task.Delay((int)seconds * 1000);
+        }
+        public static async Task FadeOutAsync(this FrameworkElement element,
+                                              double seconds = 0.3)
+        {
+            var sb = new Storyboard();
+            sb.AddFadeOut(seconds);
+            sb.Begin(element);
+            element.Visibility = Visibility.Visible;
+            await Task.Delay((int)seconds * 1000);
+            element.Visibility = Visibility.Collapsed;
+        }
     }
 }

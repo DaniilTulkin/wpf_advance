@@ -6,8 +6,8 @@
         {
             return type switch
             {
-                IconType.File => "\uf0f6;",
-                IconType.Picture => "\uf1c5;",
+                IconType.File => "\uf0f6",
+                IconType.Picture => "\uf1c5",
                 _ => null
             };
         }

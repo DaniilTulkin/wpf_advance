@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Core;
+using System.Collections.Generic;
 using System.Windows.Input;
 
 namespace wpf_advance.Core
@@ -17,6 +18,15 @@ namespace wpf_advance.Core
         public ICommand PopupClickAwayCommand => new RelayCommand(() =>
         {
             AttachmentMenuVisible = false;
+        });
+        public ICommand SendCommand => new RelayCommand(() =>
+        {
+            IoC.UI.ShowMessage(new MessageBoxDialogViewModel
+            {
+                Title = "Send message",
+                Message = "Thanks for writing a nice message",
+                OkText = "Ok"
+            });
         });
     }
 }

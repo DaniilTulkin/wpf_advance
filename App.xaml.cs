@@ -1,5 +1,6 @@
 ﻿using Core;
 using System.Windows;
+using wpf_advance.Core;
 
 namespace wpf_advance
 {
@@ -9,9 +10,16 @@ namespace wpf_advance
         {
             base.OnStartup(e);
 
-            IoC.Setup();
+            ApplicationSetup();
+
             Current.MainWindow = new MainWindow();
             Current.MainWindow.Show();
+        }
+
+        private void ApplicationSetup()
+        {
+            IoC.Setup();
+            IoC.Kernel.Bind<IUIMenager>().ToConstant(new UIManager());
         }
     }
 }

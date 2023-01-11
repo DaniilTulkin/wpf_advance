@@ -1,11 +1,12 @@
 ﻿using Ninject;
-using System;
+using wpf_advance.Core;
 
 namespace Core
 {
     public static class IoC
     {
         public static IKernel Kernel { get; private set; } = new StandardKernel();
+        public static IUIMenager UI => Get<IUIMenager>();
 
         public static T Get<T>() => Kernel.Get<T>();
 
