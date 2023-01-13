@@ -32,6 +32,8 @@
                         <Button Grid.Column="2"
                                 Content="{StaticResource FontAwesomeCogIcon}"
                                 Style="{StaticResource IconButton}"
+                                Command="{Binding SettingsViewModel.Open, 
+                                Source={x:Static local:ViewModelLocator.Instance}}"
                                 Foreground="{StaticResource WordDarkBlueBrush}" />
                     </Grid>
                     <Border Grid.Row="1"

@@ -7,6 +7,8 @@ namespace Core
     {
         public static IKernel Kernel { get; private set; } = new StandardKernel();
         public static IUIMenager UI => Get<IUIMenager>();
+        public static ApplicationViewModel Application => Get<ApplicationViewModel>();
+        public static SettingsViewModel Settings => Get<SettingsViewModel>();
 
         public static T Get<T>() => Kernel.Get<T>();
 
@@ -18,6 +20,7 @@ namespace Core
         private static void BindViewModels()
         {
             Kernel.Bind<ApplicationViewModel>().ToConstant(new ApplicationViewModel());
+            Kernel.Bind<SettingsViewModel>().ToConstant(new SettingsViewModel());
         }
     }
 }

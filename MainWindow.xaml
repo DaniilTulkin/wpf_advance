@@ -120,6 +120,10 @@
                             Viewport="0 0 500 500"
                             ImageSource="/Resources/Images/Backgrounds/emoji-background.png" />
             </Grid.Background>
+            <local:SettingsControl Grid.ColumnSpan="2"
+                                   Panel.ZIndex="9"
+                                   local:AnimateSlideInFromBottomMarginProperty.Value="{Binding ApplicationViewModel.SettingsMenuVisible, 
+                                   Source={x:Static local:ViewModelLocator.Instance}}" />
             <Border Grid.ColumnSpan="2"
                     Panel.ZIndex="10"
                     Opacity="0.3">

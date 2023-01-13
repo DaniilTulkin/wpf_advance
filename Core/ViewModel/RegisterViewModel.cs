@@ -21,7 +21,7 @@ namespace wpf_advance.Core
         });
         public ICommand LoginCommand => new RelayCommand(async () =>
         {
-            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Login);
+            IoC.Application.GoToPage(ApplicationPage.Login);
             await Task.Delay(1000);
         });
     }

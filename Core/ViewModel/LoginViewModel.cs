@@ -18,12 +18,12 @@ namespace wpf_advance.Core
                 string email = Email;
                 string pass = (parameter as IHavePassword).SecurePassword.Unsecure();
 
-                IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Chat);
+                IoC.Application.GoToPage(ApplicationPage.Chat);
             });
         });
         public ICommand RegisterCommand => new RelayCommand(async () =>
         {
-            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Register);
+            IoC.Application.GoToPage(ApplicationPage.Register);
             await Task.Delay(1000);
         });
     }

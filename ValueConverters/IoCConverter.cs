@@ -11,7 +11,7 @@ namespace wpf_advance
         {
             return (string)parameter switch
             {
-                nameof(ApplicationViewModel) => IoC.Get<ApplicationViewModel>(),
+                nameof(ApplicationViewModel) => IoC.Application,
                 _ => null
             };
         }

@@ -38,6 +38,7 @@ namespace wpf_advance
             sb.Begin(element);
             element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
+            element.Visibility = Visibility.Hidden;
         }
         public static async Task SlideAndFadeOutToRightAsync(this FrameworkElement element, 
                                                              double seconds = 0.3,
@@ -49,6 +50,7 @@ namespace wpf_advance
             sb.Begin(element);
             element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
+            element.Visibility = Visibility.Hidden;
         }
         public static async Task SlideAndFadeInFromBottomAsync(this FrameworkElement element,
                                                                double seconds = 0.3,
@@ -89,7 +91,7 @@ namespace wpf_advance
             sb.Begin(element);
             element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
-            element.Visibility = Visibility.Collapsed;
+            element.Visibility = Visibility.Hidden;
         }
     }
 }

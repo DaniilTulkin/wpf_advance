@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using Core;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
 using wpf_advance.Core;
