@@ -10,6 +10,28 @@
     <Border BorderBrush="{StaticResource ForegroundDarkBrush}"
             BorderThickness="0 0 0 0.4">
         <Grid Background="{StaticResource ForegroundLightBrush}">
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation To="1"
+                                             Duration="0:0:0.4"
+                                             Storyboard.TargetName="EditButton"
+                                             Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation To="0"
+                                             Duration="0:0:0.4"
+                                             Storyboard.TargetName="EditButton"
+                                             Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Grid.Triggers>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -24,22 +46,49 @@
                      FontSize="{StaticResource FontSizeRegular}"
                      Padding="2"
                      Margin="10 10 15 8"
-                     local:AnimateFadeInProperty.Value="{Binding Editing}"/>
+                     local:AnimateFadeInProperty.Value="{Binding Editing}" />
             <TextBlock Grid.Column="1"
                        Text="{Binding OriginalText}"
                        Margin="15 8"
                        VerticalAlignment="Center"
                        local:AnimateFadeInProperty.Value="{Binding Editing, Converter={local:BooleanInvertConverter}}"
                        local:FocuseAndSelectProperty.Value="{Binding Editing}" />
-            <Grid Grid.Column="2">
-                <Button Content="..."
+            <Grid Grid.Column="2"
+                  local:AnimateFadeInProperty.Value="{Binding Editing, Converter={local:BooleanInvertConverter}}">
+                <Button x:Name="EditButton"
+                        Opacity="0"
+                        Content="{StaticResource FontAwesomeEllipsisHorizontalIcon}"
+                        FontFamily="{StaticResource FontAwesome}"
                         Command="{Binding Edit}"
                         Padding="8 5"
                         Margin="0"
                         Background="{StaticResource ForegroundDarkBrush}"
                         FontSize="{StaticResource FontSizeSmall}"
-                        VerticalAlignment="Center"/>
+                        VerticalAlignment="Center" />
             </Grid>
+            <StackPanel Grid.Column="2"
+                        Orientation="Horizontal">
+                <Button Content="{StaticResource FontAwesomeTickIcon}"
+                        FontFamily="{StaticResource FontAwesome}"
+                        IsDefault="True"
+                        Cursor="Hand"
+                        Command="{Binding Save}"
+                        Background="{StaticResource WordGreenBrush}"
+                        Padding="8 5"
+                        Margin="0 0 5 0"
+                        VerticalAlignment="Center"
+                        FontSize="{StaticResource FontSizeSmall}"
+                        local:AnimateFadeInProperty.Value="{Binding Editing}" />
+                <Button Content="{StaticResource FontAwesomeCloseIcon}"
+                        FontFamily="{StaticResource FontAwesome}"
+                        IsCancel="True"
+                        Command="{Binding Cancel}"
+                        Background="{StaticResource WordOrangeBrush}"
+                        Padding="8 5"
+                        VerticalAlignment="Center"
+                        FontSize="{StaticResource FontSizeSmall}"
+                        local:AnimateFadeInProperty.Value="{Binding Editing}" />
+            </StackPanel>
         </Grid>
     </Border>
 </UserControl>

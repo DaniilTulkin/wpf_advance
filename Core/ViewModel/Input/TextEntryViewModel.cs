@@ -9,8 +9,16 @@ namespace wpf_advance.Core
         public string EditedText { get; set; }
         public bool Editing { get; set; }
 
-        public ICommand Edit => new RelayCommand(() => Editing ^= true);
+        public ICommand Edit => new RelayCommand(() =>
+        {
+            EditedText = OriginalText;
+            Editing = true;
+        });
         public ICommand Cancel => new RelayCommand(() => Editing = false);
-        public ICommand Save => new RelayCommand(() => Editing = false);
+        public ICommand Save => new RelayCommand(() =>
+        {
+            OriginalText = EditedText;
+            Editing = false;
+        });
     }
 }
