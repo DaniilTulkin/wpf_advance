@@ -64,8 +64,8 @@
     <Compile Include="IoC\Base\IoC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\SecureStringHelper.cs" />
-    <Compile Include="ViewModel\SettingsViewModel.cs" />
-    <Compile Include="ViewModel\ApplicationViewModel.cs" />
+    <Compile Include="ViewModel\Application\SettingsViewModel.cs" />
+    <Compile Include="ViewModel\Application\ApplicationViewModel.cs" />
     <Compile Include="ViewModel\Base\BaseDialogViewModel.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\Base\IHavePassword.cs" />
@@ -80,6 +80,8 @@
     <Compile Include="ViewModel\Chat\ChatMessage\Disign\ChatMessageListDisignModel.cs" />
     <Compile Include="ViewModel\Chat\ChatMessage\Disign\ChatMessageListItemDisignModel.cs" />
     <Compile Include="ViewModel\Dialogs\MessageBoxDialogViewModel.cs" />
+    <Compile Include="ViewModel\Input\Disign\TextEntryDisignModel.cs" />
+    <Compile Include="ViewModel\Input\TextEntryViewModel.cs" />
     <Compile Include="ViewModel\Menu\Disign\MenuDisignModel.cs" />
     <Compile Include="ViewModel\Menu\Disign\MenuItemDisignModel.cs" />
     <Compile Include="ViewModel\Menu\MenuViewModel.cs" />
@@ -87,8 +89,8 @@
     <Compile Include="ViewModel\PopupMenu\BasePopupViewModel.cs" />
     <Compile Include="ViewModel\PopupMenu\Disign\ChatAttachmentPopupMenuDisignModel .cs" />
     <Compile Include="ViewModel\PopupMenu\ChatAttachmentPopupMenuViewModel .cs" />
-    <Compile Include="ViewModel\RegisterViewModel.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\Application\RegisterViewModel.cs" />
+    <Compile Include="ViewModel\Application\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

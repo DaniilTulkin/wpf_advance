@@ -13,6 +13,8 @@ namespace wpf_advance
                !FirstLoad) return;
             if (FirstLoad)
             {
+                if (!(bool)value) element.Visibility = Visibility.Hidden;
+
                 RoutedEventHandler onLoaded = null;
                 onLoaded = (s, e) =>
                 {

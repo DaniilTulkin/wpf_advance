@@ -14,7 +14,7 @@ namespace wpf_advance
             sb.AddSlideFromRight(seconds, element.ActualWidth, keepMargin: keepMargin);
             sb.AddFadeIn(seconds);
             sb.Begin(element);
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0) element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
         }
         public static async Task SlideAndFadeInFromLeftAsync(this FrameworkElement element, 
@@ -25,7 +25,7 @@ namespace wpf_advance
             sb.AddSlideFromLeft(seconds, element.ActualWidth, keepMargin: keepMargin);
             sb.AddFadeIn(seconds);
             sb.Begin(element);
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0) element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
         }
         public static async Task SlideAndFadeOutToLeftAsync(this FrameworkElement element, 
@@ -36,7 +36,7 @@ namespace wpf_advance
             sb.AddSlideToLeft(seconds, element.ActualWidth, keepMargin: keepMargin);
             sb.AddFadeOut(seconds);
             sb.Begin(element);
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0) element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
             element.Visibility = Visibility.Hidden;
         }
@@ -48,7 +48,7 @@ namespace wpf_advance
             sb.AddSlideToRight(seconds, element.ActualWidth, keepMargin: keepMargin);
             sb.AddFadeOut(seconds);
             sb.Begin(element);
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0) element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
             element.Visibility = Visibility.Hidden;
         }
@@ -60,7 +60,7 @@ namespace wpf_advance
             sb.AddSlideFromBottom(seconds, element.ActualHeight, keepMargin: keepMargin);
             sb.AddFadeIn(seconds);
             sb.Begin(element);
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0) element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
         }
         public static async Task SlideAndFadeOutToBottomAsync(this FrameworkElement element,
@@ -71,7 +71,7 @@ namespace wpf_advance
             sb.AddSlideToBottom(seconds, element.ActualHeight, keepMargin: keepMargin);
             sb.AddFadeOut(seconds);
             sb.Begin(element);
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0) element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
         }
         public static async Task FadeInAsync(this FrameworkElement element,
@@ -80,7 +80,7 @@ namespace wpf_advance
             var sb = new Storyboard();
             sb.AddFadeIn(seconds);
             sb.Begin(element);
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0) element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
         }
         public static async Task FadeOutAsync(this FrameworkElement element,
@@ -89,7 +89,7 @@ namespace wpf_advance
             var sb = new Storyboard();
             sb.AddFadeOut(seconds);
             sb.Begin(element);
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0) element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
             element.Visibility = Visibility.Hidden;
         }
