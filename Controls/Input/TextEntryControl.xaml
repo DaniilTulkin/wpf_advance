@@ -6,10 +6,14 @@
              xmlns:local="clr-namespace:wpf_advance"
              xmlns:core="clr-namespace:wpf_advance.Core;assembly=Core"
              mc:Ignorable="d"
-             DataContext="{x:Static core:TextEntryDisignModel.Instance}">
+             d:DataContext="{x:Static core:TextEntryDisignModel.Instance}">
     <Border BorderBrush="{StaticResource ForegroundDarkBrush}"
             BorderThickness="0 0 0 0.4">
         <Grid Background="{StaticResource ForegroundLightBrush}">
+            <Grid.InputBindings>
+                <MouseBinding MouseAction="LeftDoubleClick"
+                              Command="{Binding Edit}" />
+            </Grid.InputBindings>
             <Grid.Triggers>
                 <EventTrigger RoutedEvent="MouseEnter">
                     <BeginStoryboard>
@@ -33,19 +37,22 @@
                 </EventTrigger>
             </Grid.Triggers>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition x:Name="LabelColumnDefinition" Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <TextBlock Text="{Binding Label}"
+                       x:Name="Label"
                        Margin="15 12"
                        VerticalAlignment="Center"
                        FontFamily="{StaticResource LatoRegular}" />
             <TextBox Grid.Column="1"
-                     Text="{Binding EditedText}"
+                     Text="{Binding EditedText, UpdateSourceTrigger=PropertyChanged}"
                      FontSize="{StaticResource FontSizeRegular}"
+                     Opacity="0"
                      Padding="2"
                      Margin="10 10 15 8"
+                     HorizontalAlignment="Left"
                      local:AnimateFadeInProperty.Value="{Binding Editing}" />
             <TextBlock Grid.Column="1"
                        Text="{Binding OriginalText}"

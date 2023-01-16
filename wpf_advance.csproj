@@ -74,6 +74,7 @@
     <Compile Include="Animations\PageAnimations.cs" />
     <Compile Include="Animations\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
+    <Compile Include="AttachedProperties\TextEntryWidthMatcherProperty.cs" />
     <Compile Include="AttachedProperties\PanelChildMarginProperty.cs" />
     <Compile Include="AttachedProperties\TextAttachedProperty.cs" />
     <Compile Include="AttachedProperties\NoFrameHistoryProperty.cs" />

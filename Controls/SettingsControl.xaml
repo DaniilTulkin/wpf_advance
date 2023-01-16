@@ -49,11 +49,12 @@
                                     Stretch="UniformToFill" />
                     </Border.Background>
                 </Border>
-                <StackPanel Grid.Column="1">
-                    <local:TextEntryControl />
-                    <local:TextEntryControl />
-                    <local:TextEntryControl />
-                    <local:TextEntryControl />
+                <StackPanel Grid.Column="1"
+                            local:TextEntryWidthMatcherProperty.Value="True">
+                    <local:TextEntryControl DataContext="{Binding Name}" />
+                    <local:TextEntryControl DataContext="{Binding UserName}" />
+                    <local:TextEntryControl DataContext="{Binding Password}" />
+                    <local:TextEntryControl DataContext="{Binding Email}" />
                 </StackPanel>
             </Grid>
         </Grid>
