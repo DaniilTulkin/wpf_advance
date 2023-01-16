@@ -4,7 +4,11 @@ namespace wpf_advance
 {
     public partial class ChatPage : BasePage<ChatMessageListViewModel>
     {
-        public ChatPage()
+        public ChatPage() : base()
+        {
+            InitializeComponent();
+        }
+        public ChatPage(ChatMessageListViewModel specificViewModel) : base(specificViewModel)
         {
             InitializeComponent();
         }

@@ -74,7 +74,7 @@ namespace wpf_advance.Core
                         SentByMe = false
                     }
                 }
-            }); ;
+            });
         });
     }
 }

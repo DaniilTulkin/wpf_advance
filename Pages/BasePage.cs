@@ -2,15 +2,31 @@
 using System.Windows;
 using System.Threading.Tasks;
 using wpf_advance.Core;
+using Core;
 
 namespace wpf_advance
 {
     public class BasePage: Page
     {
+        private object viewModel;
         public PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideAndFadeInFromRight;
         public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideAndFadeOutToLeft;
         public double SlideSeconds { get; set; } = 0.4;
         public bool ShouldAnimateOut { get; set; }
+        public object ViewModelObject
+        {
+            get
+            {
+                return viewModel;
+            }
+            set
+            {
+                if (viewModel == value) return;
+                viewModel = value;
+
+                DataContext = viewModel;
+            }
+        }
 
         public BasePage()
         {
@@ -55,25 +71,22 @@ namespace wpf_advance
     public class BasePage<VM> : BasePage
         where VM : BaseViewModel, new()
     {
-        private VM viewModel;
         public VM ViewModel
         {
-            get
-            {
-                return viewModel;
-            }
-            set
-            {
-                if (viewModel == value) return;
-                viewModel = value;
-
-                DataContext = viewModel;
-            }
+            get => (VM)ViewModelObject; 
+            set => ViewModelObject = value;
         }
-
         public BasePage() : base()
         {
-            ViewModel = new VM();
+            ViewModel = IoC.Get<VM>();
+        }
+
+        public BasePage(VM specificViewModel = null) : base()
+        {
+            if (specificViewModel != null)
+                ViewModel = specificViewModel;
+            else
+                ViewModel = IoC.Get<VM>();
         }
     }
 }

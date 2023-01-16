@@ -9,7 +9,10 @@ namespace wpf_advance
         {
             InitializeComponent();
         }
-
+        public LoginPage(LoginViewModel spicificViewModel) : base(spicificViewModel) 
+        {
+            InitializeComponent();
+        }
         public SecureString SecurePassword => PasswordText.SecurePassword;
     }
 }

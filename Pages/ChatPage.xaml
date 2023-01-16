@@ -47,7 +47,7 @@
                         Style="{StaticResource IconGrowButton}" />
             </StackPanel>
         </Grid>
-        <local:ChatMessageListControl Grid.Row="1" />
+        <local:ChatMessageListControl Grid.Row="1"/>
         <local:BubbleControl Grid.Row="1"
                              Panel.ZIndex="2"
                              DataContext="{Binding AttachmentMenu}"

@@ -21,12 +21,19 @@ namespace wpf_advance
 
         private static object CurrentPagePropertyChanged(DependencyObject d, object value)
         {
-            var currentPage = d.GetValue(CurrentPageProperty);
+            var currentPage = (ApplicationPage)d.GetValue(CurrentPageProperty);
             var currentPageViewModel = d.GetValue(CurrentPageViewModelProperty);
 
             var newPageFrame = (d as PageHost).NewPage;
             var oldPageFrame = (d as PageHost).OldPage;
-            
+
+            if (newPageFrame.Content is BasePage page &&
+                page.ToApplicationPage() == currentPage)
+            {
+                page.ViewModelObject = currentPageViewModel;
+                return value;
+            }
+
             var oldPageContent = newPageFrame.Content;
             newPageFrame.Content = null;
             oldPageFrame.Content = oldPageContent;
@@ -40,7 +47,7 @@ namespace wpf_advance
                 });
             }
 
-            newPageFrame.Content = currentPage;
+            newPageFrame.Content = currentPage.ToBasePage(currentPageViewModel);
             return value;
         }
 
