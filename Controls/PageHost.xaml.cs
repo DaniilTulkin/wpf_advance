@@ -1,25 +1,29 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using wpf_advance.Core;
 
 namespace wpf_advance
 {
     public partial class PageHost : UserControl
     {
-        public BasePage CurrentPage
+        public ApplicationPage CurrentPage
         {
-            get => (BasePage)GetValue(CurrentPageProperty);
+            get => (ApplicationPage)GetValue(CurrentPageProperty);
             set => SetValue(CurrentPageProperty, value);
         }
 
         public static readonly DependencyProperty CurrentPageProperty =
             DependencyProperty.Register(nameof(CurrentPage), 
-                                        typeof(BasePage), 
+                                        typeof(ApplicationPage), 
                                         typeof(PageHost), 
-                                        new UIPropertyMetadata(CurrentPagePropertyChanged));
+                                        new UIPropertyMetadata(default(ApplicationPage), null, CurrentPagePropertyChanged));
 
-        private static void CurrentPagePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static object CurrentPagePropertyChanged(DependencyObject d, object value)
         {
+            var currentPage = d.GetValue(CurrentPageProperty);
+            var currentPageViewModel = d.GetValue(CurrentPageViewModelProperty);
+
             var newPageFrame = (d as PageHost).NewPage;
             var oldPageFrame = (d as PageHost).OldPage;
             
@@ -36,8 +40,18 @@ namespace wpf_advance
                 });
             }
 
-            newPageFrame.Content = e.NewValue;
+            newPageFrame.Content = currentPage;
+            return value;
         }
+
+        public BaseViewModel CurrentPageViewModel
+        {
+            get { return (BaseViewModel)GetValue(CurrentPageViewModelProperty); }
+            set { SetValue(CurrentPageViewModelProperty, value); }
+        }
+
+        public static readonly DependencyProperty CurrentPageViewModelProperty =
+            DependencyProperty.Register("CurrentPageViewModel", typeof(BaseViewModel), typeof(PageHost), new PropertyMetadata());
 
         public PageHost()
         {

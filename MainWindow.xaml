@@ -137,10 +137,10 @@
                 <local:ChatListControl />
             </local:SideMenuControl>
             <local:PageHost Grid.Column="1"
-                            DataContext="{Binding ApplicationViewModel.CurrentPage, 
-                            Source={x:Static local:ViewModelLocator.Instance}, 
-                            Converter={local:ApplicationPageValueConverter}}"
-                            CurrentPage="{Binding}" />
+                            CurrentPage="{Binding ApplicationViewModel.CurrentPage, 
+                            Source={x:Static local:ViewModelLocator.Instance}}"
+                            CurrentPageViewModel="{Binding ApplicationViewModel.CurrentPageViewModel, 
+                            Source={x:Static local:ViewModelLocator.Instance}}"/>
         </Grid>
     </Border>
 </Window>
