@@ -43,7 +43,8 @@
                 <Border Grid.Column="0"
                         CornerRadius="8"
                         Height="{Binding ActualWidth,RelativeSource={RelativeSource Self}}"
-                        Margin="0 0 30 0">
+                        Margin="0 0 30 0"
+                        VerticalAlignment="Top">
                     <Border.Background>
                         <ImageBrush ImageSource="/Resources/Samples/dog.jpg"
                                     Stretch="UniformToFill" />
@@ -53,8 +54,11 @@
                             local:TextEntryWidthMatcherProperty.Value="True">
                     <local:TextEntryControl DataContext="{Binding Name}" />
                     <local:TextEntryControl DataContext="{Binding UserName}" />
-                    <local:TextEntryControl DataContext="{Binding Password}" />
+                    <local:PasswordEntryControl DataContext="{Binding Password}" />
                     <local:TextEntryControl DataContext="{Binding Email}" />
+                    <Button Content="{Binding LogoutButtonsText}"
+                            Command="{Binding Logout}"
+                            FontSize="{StaticResource FontSizeRegular}" />
                 </StackPanel>
             </Grid>
         </Grid>

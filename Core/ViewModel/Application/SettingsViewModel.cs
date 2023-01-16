@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using wpf_advance.Core;
 
 namespace Core
@@ -7,29 +8,23 @@ namespace Core
     {
         public TextEntryViewModel Name { get; set; }
         public TextEntryViewModel UserName { get; set; }
-        public TextEntryViewModel Password { get; set; }
+        public PasswordEntryViewModel Password { get; set; }
         public TextEntryViewModel Email { get; set; }
+        public string LogoutButtonsText { get; set; } = "Logout";
 
-        public SettingsViewModel()
+        private void ClearUserData()
         {
-            Name = new TextEntryViewModel();
-            Name.Label = "Name";
-            Name.OriginalText = "Name";
-
-            UserName = new TextEntryViewModel();
-            UserName.Label = "UserName";
-            UserName.OriginalText = "UserName";
-
-            Password = new TextEntryViewModel();
-            Password.Label = "Password";
-            Password.OriginalText = "Password";
-
-            Email = new TextEntryViewModel();
-            Email.Label= "Email";
-            Email.OriginalText = "Email";
+            Name = null;
+            UserName = null; 
+            Password = null; 
+            Email = null;
         }
-
         public ICommand Open => new RelayCommand(() => IoC.Application.SettingsMenuVisible = true);
         public ICommand Close => new RelayCommand(() => IoC.Application.SettingsMenuVisible = false);
+        public ICommand Logout => new RelayCommand(() =>
+        {
+            ClearUserData();
+            IoC.Application.GoToPage(ApplicationPage.Login);
+        });
     }
 }

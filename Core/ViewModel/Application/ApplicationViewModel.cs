@@ -9,6 +9,7 @@ namespace Core
         public bool SettingsMenuVisible { get; set; }
         public void GoToPage(ApplicationPage page)
         {
+            SettingsMenuVisible = false;
             CurrentPage = page;
             SideMenuVisible = page == ApplicationPage.Chat;
         }

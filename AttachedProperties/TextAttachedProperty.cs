@@ -19,13 +19,21 @@ namespace wpf_advance
     {
         public override void OnValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            base.OnValueChanged(sender, e);
+            if (sender is TextBoxBase control)
             {
-                if (!(sender is TextBoxBase control)) return;
                 if ((bool)e.NewValue)
                 {
                     control.Focus();
                     control.SelectAll();
+                }
+            }
+
+            if (sender is PasswordBox password)
+            {
+                if ((bool)e.NewValue)
+                {
+                    password.Focus();
+                    password.SelectAll();
                 }
             }
         }

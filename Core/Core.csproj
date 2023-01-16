@@ -80,7 +80,9 @@
     <Compile Include="ViewModel\Chat\ChatMessage\Disign\ChatMessageListDisignModel.cs" />
     <Compile Include="ViewModel\Chat\ChatMessage\Disign\ChatMessageListItemDisignModel.cs" />
     <Compile Include="ViewModel\Dialogs\MessageBoxDialogViewModel.cs" />
+    <Compile Include="ViewModel\Input\Disign\PasswordEntryDisignModel.cs" />
     <Compile Include="ViewModel\Input\Disign\TextEntryDisignModel.cs" />
+    <Compile Include="ViewModel\Input\PasswordEntryViewModel.cs" />
     <Compile Include="ViewModel\Input\TextEntryViewModel.cs" />
     <Compile Include="ViewModel\Menu\Disign\MenuDisignModel.cs" />
     <Compile Include="ViewModel\Menu\Disign\MenuItemDisignModel.cs" />

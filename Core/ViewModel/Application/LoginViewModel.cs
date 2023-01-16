@@ -1,6 +1,8 @@
 ﻿using Core;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Xml.Linq;
 
 namespace wpf_advance.Core
 {
@@ -15,8 +17,29 @@ namespace wpf_advance.Core
             {
                 await Task.Delay(1000);
 
-                string email = Email;
-                string pass = (parameter as IHavePassword).SecurePassword.Unsecure();
+                IoC.Settings.Name = new TextEntryViewModel
+                {
+                    Label = "Name",
+                    OriginalText = $"Name {DateTime.Now.ToLocalTime()}"
+                };
+
+                IoC.Settings.UserName = new TextEntryViewModel
+                {
+                    Label = "UserName",
+                    OriginalText = "UserName",
+                };
+
+                IoC.Settings.Password = new PasswordEntryViewModel
+                {
+                    Label = "Password",
+                    FakePassword = "********",
+                };
+
+                IoC.Settings.Email = new TextEntryViewModel
+                {
+                    Label = "Email",
+                    OriginalText = "Email",
+                };
 
                 IoC.Application.GoToPage(ApplicationPage.Chat);
             });
