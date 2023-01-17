@@ -24,6 +24,7 @@ namespace wpf_advance
                 if (viewModel == value) return;
                 viewModel = value;
 
+                OnViewModelChanged();
                 DataContext = viewModel;
             }
         }
@@ -35,6 +36,8 @@ namespace wpf_advance
 
             Loaded += BasePage_LoadedAsync;
         }
+
+        protected virtual void OnViewModelChanged() { }
 
         private async void BasePage_LoadedAsync(object sender, RoutedEventArgs e)
         {

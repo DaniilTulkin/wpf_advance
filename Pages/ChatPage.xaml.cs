@@ -1,4 +1,5 @@
-﻿using wpf_advance.Core;
+﻿using System.Windows.Media.Animation;
+using wpf_advance.Core;
 
 namespace wpf_advance
 {
@@ -11,6 +12,16 @@ namespace wpf_advance
         public ChatPage(ChatMessageListViewModel specificViewModel) : base(specificViewModel)
         {
             InitializeComponent();
+        }
+
+        protected override void OnViewModelChanged()
+        {
+            if (ChatMessageList != null)
+            {
+                var storyboard = new Storyboard();
+                storyboard.AddFadeIn(1);
+                storyboard.Begin(ChatMessageList);
+            }
         }
     }
 }
