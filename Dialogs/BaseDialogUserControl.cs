@@ -33,6 +33,8 @@ namespace wpf_advance
                     dialogWindow.ViewModel.TitleHeight = TitleHeight;
                     dialogWindow.ViewModel.Title = viewModel.Title ?? Title;
                     dialogWindow.ViewModel.Content = this;
+                    dialogWindow.Owner = Application.Current.MainWindow;
+                    dialogWindow.WindowStartupLocation= WindowStartupLocation.CenterOwner;
                     DataContext = viewModel;
 
                     dialogWindow.ShowDialog();

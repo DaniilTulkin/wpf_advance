@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace wpf_advance.Core
 {
@@ -9,7 +9,7 @@ namespace wpf_advance.Core
 
         public ChatMessageListDisignModel()
         {
-            Items = new List<ChatMessageListItemViewModel>
+            Items = new ObservableCollection<ChatMessageListItemViewModel>
             {
                 new ChatMessageListItemViewModel
                 {

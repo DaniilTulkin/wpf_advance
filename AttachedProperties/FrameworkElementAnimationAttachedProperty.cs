@@ -45,6 +45,13 @@ namespace wpf_advance
             else await element.SlideAndFadeOutToBottomAsync(FirstLoad ? 0 : 0.3, false);
         }
     }
+    public class AnimateSlideInFromBottomOnLoadProperty : AnimateBaseProperty<AnimateSlideInFromBottomOnLoadProperty>
+    {
+        protected override async void DoAnimation(FrameworkElement element, bool value)
+        {
+            await element.SlideAndFadeInFromBottomAsync(!value ? 0 : 0.3, false);
+        }
+    }
     public class AnimateSlideInFromBottomMarginProperty : AnimateBaseProperty<AnimateSlideInFromBottomMarginProperty>
     {
         protected override async void DoAnimation(FrameworkElement element, bool value)

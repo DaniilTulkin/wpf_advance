@@ -75,14 +75,18 @@
                     Height="{Binding MinHeight, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
                     Foreground="{StaticResource ForegroundDarkBrush}" />
             <TextBox Grid.Column="1"
+                     x:Name="MessageText"
+                     local:IsFocusedProperty.Value="True"
                      Padding="0 10 10 10"
                      Tag="Write a message..."
+                     Text="{Binding PendingMessageText, UpdateSourceTrigger=PropertyChanged}"
                      FontSize="{StaticResource FontSizeRegular}"
                      VerticalAlignment="Center"
                      BorderThickness="0"
-                     AcceptsReturn="True"
                      AcceptsTab="True"
-                     VerticalScrollBarVisibility="Auto" />
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto"
+                     PreviewKeyDown="MessageText_PreviewKeyDown"/>
             <StackPanel Grid.Column="2"
                         Orientation="Horizontal"
                         Margin="0 0 8 0"
@@ -93,9 +97,11 @@
                         Foreground="{StaticResource WordOrangeBrush}" />
                 <Button Content="Send"
                         Padding="8"
+                        IsDefault="True"
+                        Focusable="False"
                         Command="{Binding SendCommand}"
                         Background="{StaticResource WordGreenBrush}"
-                        FontSize="{StaticResource FontSizeRegular}" />
+                        FontSize="{StaticResource FontSizeRegular}"/>
             </StackPanel>
         </Grid>
     </Grid>

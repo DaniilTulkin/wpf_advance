@@ -10,6 +10,7 @@ namespace wpf_advance.Core
         public string ProfilePictureRGB { get; set; }
         public bool IsSelected { get; set; }
         public bool SentByMe { get; set; }
+        public bool NewItem { get; set; }
         public DateTimeOffset MessageReadTime { get; set; }
         public DateTimeOffset MessageSentTime { get; set; }
         public bool MessageRead => MessageReadTime > DateTimeOffset.MinValue;
