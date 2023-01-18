@@ -21,5 +21,6 @@ namespace wpf_advance.Core
             }
         }
         public string LocalFilePath { get; set; }
+        public bool ImageLoaded => LocalFilePath != null;
     }
 }

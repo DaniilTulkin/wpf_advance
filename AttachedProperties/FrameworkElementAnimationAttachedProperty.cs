@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace wpf_advance
 {
@@ -28,6 +29,24 @@ namespace wpf_advance
         }
 
         protected virtual void DoAnimation(FrameworkElement element, bool value) { }
+    }
+    public class FadeImageOnLoadProperty: AnimateBaseProperty<FadeImageOnLoadProperty>
+    {
+        public override void OnValueUpdated(DependencyObject sender, object value)
+        {
+            if (sender is Image image)
+            {
+                if ((bool)value) 
+                    image.TargetUpdated += Image_TargetUpdatedAsync;
+                else 
+                    image.TargetUpdated -= Image_TargetUpdatedAsync;
+            }
+        }
+
+        private async void Image_TargetUpdatedAsync(object sender, System.Windows.Data.DataTransferEventArgs e)
+        {
+            await (sender as Image).FadeInAsync();
+        }
     }
     public class AnimateSlideInFromLeftProperty : AnimateBaseProperty<AnimateSlideInFromLeftProperty>
     {
