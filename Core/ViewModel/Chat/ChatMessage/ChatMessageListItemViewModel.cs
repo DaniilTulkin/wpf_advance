@@ -11,8 +11,11 @@ namespace wpf_advance.Core
         public bool IsSelected { get; set; }
         public bool SentByMe { get; set; }
         public bool NewItem { get; set; }
+        public ChatMessageListItemImageAttachmentViewModel ImageAttachment { get; set; }
         public DateTimeOffset MessageReadTime { get; set; }
         public DateTimeOffset MessageSentTime { get; set; }
+        public bool HasImageAttachment => ImageAttachment != null;
+        public bool HasMessage => Message != null;
         public bool MessageRead => MessageReadTime > DateTimeOffset.MinValue;
     }
 }
