@@ -56,6 +56,22 @@ namespace wpf_advance
             else await element.SlideAndFadeOutToLeftAsync(FirstLoad ? 0 : 0.3, false);
         }
     }
+    public class AnimateSlideInFromRightProperty : AnimateBaseProperty<AnimateSlideInFromRightProperty>
+    {
+        protected override async void DoAnimation(FrameworkElement element, bool value)
+        {
+            if (value) await element.SlideAndFadeInFromRightAsync(FirstLoad ? 0 : 0.3, false);
+            else await element.SlideAndFadeOutToRightAsync(FirstLoad ? 0 : 0.3, false);
+        }
+    }
+    public class AnimateSlideInFromRightMarginProperty : AnimateBaseProperty<AnimateSlideInFromRightProperty>
+    {
+        protected override async void DoAnimation(FrameworkElement element, bool value)
+        {
+            if (value) await element.SlideAndFadeInFromRightAsync(FirstLoad ? 0 : 0.3, true);
+            else await element.SlideAndFadeOutToRightAsync(FirstLoad ? 0 : 0.3, true);
+        }
+    }
     public class AnimateSlideInFromBottomProperty : AnimateBaseProperty<AnimateSlideInFromBottomProperty>
     {
         protected override async void DoAnimation(FrameworkElement element, bool value)
