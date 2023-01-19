@@ -11,6 +11,7 @@ namespace wpf_advance
             base.OnStartup(e);
 
             ApplicationSetup();
+            IoC.Logger.Log("Application starting up...");
 
             Current.MainWindow = new MainWindow();
             Current.MainWindow.Show();
