@@ -54,21 +54,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Async\AsyncAwaiter.cs" />
     <Compile Include="DataModels\ApplicationPage.cs" />
     <Compile Include="DataModels\ElementHorizontalAlignment.cs" />
     <Compile Include="DataModels\IconType.cs" />
     <Compile Include="DataModels\MenuItemType.cs" />
     <Compile Include="Expressions\ExpressionHelper.cs" />
+    <Compile Include="File\FileManager.cs" />
     <Compile Include="Icons\IconTypeToFontAwesome.cs" />
+    <Compile Include="IoC\Interfaces\IFileManager.cs" />
     <Compile Include="IoC\Interfaces\ILogFactory.cs" />
+    <Compile Include="IoC\Interfaces\ITaskManager.cs" />
     <Compile Include="IoC\Interfaces\IUIMenager.cs" />
     <Compile Include="IoC\Base\IoC.cs" />
     <Compile Include="Logging\Implementation\BaseLogFactory.cs" />
     <Compile Include="Logging\Core\ILogger.cs" />
     <Compile Include="Logging\Core\LogFactoryLevel.cs" />
     <Compile Include="Logging\Implementation\ConsoleLogger.cs" />
+    <Compile Include="Logging\Implementation\FileLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\SecureStringHelper.cs" />
+    <Compile Include="Task\TaskManager.cs" />
     <Compile Include="ViewModel\Application\SettingsViewModel.cs" />
     <Compile Include="ViewModel\Application\ApplicationViewModel.cs" />
     <Compile Include="ViewModel\Base\BaseDialogViewModel.cs" />

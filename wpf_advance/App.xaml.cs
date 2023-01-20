@@ -12,6 +12,9 @@ namespace wpf_advance
 
             ApplicationSetup();
             IoC.Logger.Log("Application starting up...");
+            IoC.Task.Run(() =>
+            {
+            });
 
             Current.MainWindow = new MainWindow();
             Current.MainWindow.Show();
@@ -20,6 +23,12 @@ namespace wpf_advance
         private void ApplicationSetup()
         {
             IoC.Setup();
+            IoC.Kernel.Bind<ILogFactory>().ToConstant(new BaseLogFactory(new[]
+            {
+                new FileLogger("log.txt"),
+            }));
+            IoC.Kernel.Bind<ITaskManager>().ToConstant(new TaskManager());
+            IoC.Kernel.Bind<IFileManager>().ToConstant(new FileManager());
             IoC.Kernel.Bind<IUIMenager>().ToConstant(new UIManager());
         }
     }
