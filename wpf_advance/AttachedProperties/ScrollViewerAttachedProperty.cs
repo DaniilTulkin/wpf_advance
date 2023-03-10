@@ -14,9 +14,9 @@ namespace wpf_advance
 
         private void Control_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
-            var scroll = sender as ScrollViewer;
-            if (scroll.ScrollableHeight - scroll.VerticalOffset < 50)
-                scroll.ScrollToBottom();
+            //var scroll = sender as ScrollViewer;
+            //if (scroll.ScrollableHeight - scroll.VerticalOffset < 50)
+            //    scroll.ScrollToBottom();
         }
     }
 

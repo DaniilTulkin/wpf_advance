@@ -9,6 +9,9 @@ namespace Core
         public static IUIMenager UI => Get<IUIMenager>();
         public static ApplicationViewModel Application => Get<ApplicationViewModel>();
         public static SettingsViewModel Settings => Get<SettingsViewModel>();
+        public static ILogFactory Logger => Get<ILogFactory>();
+        public static IFileManager File => Get<IFileManager>();
+        public static ITaskManager Task => Get<ITaskManager>();
 
         public static T Get<T>() => Kernel.Get<T>();
 

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace wpf_advance
 {
@@ -29,12 +30,46 @@ namespace wpf_advance
 
         protected virtual void DoAnimation(FrameworkElement element, bool value) { }
     }
+    public class FadeImageOnLoadProperty: AnimateBaseProperty<FadeImageOnLoadProperty>
+    {
+        public override void OnValueUpdated(DependencyObject sender, object value)
+        {
+            if (sender is Image image)
+            {
+                if ((bool)value) 
+                    image.TargetUpdated += Image_TargetUpdatedAsync;
+                else 
+                    image.TargetUpdated -= Image_TargetUpdatedAsync;
+            }
+        }
+
+        private async void Image_TargetUpdatedAsync(object sender, System.Windows.Data.DataTransferEventArgs e)
+        {
+            await (sender as Image).FadeInAsync();
+        }
+    }
     public class AnimateSlideInFromLeftProperty : AnimateBaseProperty<AnimateSlideInFromLeftProperty>
     {
         protected override async void DoAnimation(FrameworkElement element, bool value)
         {
             if (value) await element.SlideAndFadeInFromLeftAsync(FirstLoad ? 0 : 0.3, false);
             else await element.SlideAndFadeOutToLeftAsync(FirstLoad ? 0 : 0.3, false);
+        }
+    }
+    public class AnimateSlideInFromRightProperty : AnimateBaseProperty<AnimateSlideInFromRightProperty>
+    {
+        protected override async void DoAnimation(FrameworkElement element, bool value)
+        {
+            if (value) await element.SlideAndFadeInFromRightAsync(FirstLoad ? 0 : 0.3, false);
+            else await element.SlideAndFadeOutToRightAsync(FirstLoad ? 0 : 0.3, false);
+        }
+    }
+    public class AnimateSlideInFromRightMarginProperty : AnimateBaseProperty<AnimateSlideInFromRightProperty>
+    {
+        protected override async void DoAnimation(FrameworkElement element, bool value)
+        {
+            if (value) await element.SlideAndFadeInFromRightAsync(FirstLoad ? 0 : 0.3, true);
+            else await element.SlideAndFadeOutToRightAsync(FirstLoad ? 0 : 0.3, true);
         }
     }
     public class AnimateSlideInFromBottomProperty : AnimateBaseProperty<AnimateSlideInFromBottomProperty>

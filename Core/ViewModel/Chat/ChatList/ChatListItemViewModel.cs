@@ -17,6 +17,7 @@ namespace wpf_advance.Core
         {
             IoC.Application.GoToPage(ApplicationPage.Chat, new ChatMessageListViewModel
             {
+                DisplayTitle = "Parnell",
                 Items = new ObservableCollection<ChatMessageListItemViewModel>
                 {
                     new ChatMessageListItemViewModel
@@ -67,6 +68,10 @@ namespace wpf_advance.Core
                     new ChatMessageListItemViewModel
                     {
                         Message = "Another message",
+                        ImageAttachment = new ChatMessageListItemImageAttachmentViewModel
+                        {
+                            ThumbnailUrl = "http://google.com"
+                        },
                         Initials = Initials,
                         MessageSentTime = DateTime.UtcNow,
                         ProfilePictureRGB = "FF00FF",
