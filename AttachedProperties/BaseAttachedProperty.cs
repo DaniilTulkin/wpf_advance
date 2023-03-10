@@ -4,7 +4,7 @@ using System.Windows;
 namespace wpf_advance
 {
     public abstract class BaseAttachedProperty<Parent, Property>
-        where Parent : new()
+        where Parent : BaseAttachedProperty<Parent, Property>, new()
     {
         public event Action<DependencyObject, DependencyPropertyChangedEventArgs> ValueChanged = (sender,e) => { };
         public event Action<DependencyObject, object> ValueUpdated = (sender, value) => { };
@@ -20,15 +20,15 @@ namespace wpf_advance
 
         private static object OnValuePropertyUpdated(DependencyObject d, object value)
         {
-            (Instance as BaseAttachedProperty<Parent, Property>)?.OnValueUpdated(d, value);
-            (Instance as BaseAttachedProperty<Parent, Property>)?.ValueUpdated(d, value);
+            Instance?.OnValueUpdated(d, value);
+            Instance?.ValueUpdated(d, value);
             return value;
         }
 
         private static void OnValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            (Instance as BaseAttachedProperty<Parent, Property>)?.OnValueChanged(d, e);
-            (Instance as BaseAttachedProperty<Parent, Property>)?.ValueChanged(d, e);
+            Instance?.OnValueChanged(d, e);
+            Instance?.ValueChanged(d, e);
         }
         public static Property GetValue(DependencyObject d) => (Property)d.GetValue(ValueProperty);
         public static void SetValue(DependencyObject d, Property value) => d.SetValue(ValueProperty, value);
